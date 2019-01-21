@@ -15,7 +15,7 @@ npm run start
 
 ```
    |
-   ├──mock/                      * mock数据配置
+   ├──mock/                      * mock 数据配置
    |
    ├──src/                       * 主程序
    │   │
@@ -27,33 +27,33 @@ npm run start
    │   │
    │   └──page                   * 所有页面
    │   │
-   │   └──style                  * 所有样式变量集中管
+   │   └──style                  * 所有样式变量集中管理
    │   │
    │   └──utils                  * 封装的工具
    │   │
-   │   └──index.js               * 页面总入口
+   │   └──App.jsx                * 应用入口
    │   │
-   │   └──index.less             * 页面总样式
+   │   └──index.js               * 项目入口
    │   │
-   │   └──Routers.jsx            * 页面路由配置
+   │   └──index.less             * 项目整体样式
    │
-   │──.babelrc                   * Babel配置
+   │──.babelrc                   * Babel 配置
    │
-   │──dbox.html                  * 打包的页面模版
+   │──dbox.html                  * 生产环境页面模版
    │
-   │──devServer.js               * mock数据
+   │──devServer.js               * mock 数据
    │
-   │──index.html                 * 项目启动页面模版
+   │──index.html                 * 开发环境页面模版
    │
    │──package.json               * 包信息
    │
-   │──webpack.common.js          * webpack公共配置
+   │──webpack.common.js          * webpack 公共配置
    │
-   │──webpack.dev.js             * 项目本地启动webpack配置
+   │──webpack.dev.js             * 开发环境启动 webpack 配置
    │
-   │──webpack.dll.config.js      * 项目依赖包webpack配置
+   │──webpack.dll.config.js      * 项目依赖包 webpack 配置
    │
-   └──webpack.prod.js            * 项目打包webpack配置
+   └──webpack.prod.js            * 生产环境 webpack 配置
 ```
 
 

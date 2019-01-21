@@ -2,7 +2,7 @@ import React from 'react';
 import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 import {BasicLayout, PersonalCenter, SalesMain} from 'page';
 
-const Routers = () => (
+const App = () => (
   <Router>
     <div>
       <Switch>
@@ -16,4 +16,4 @@ const Routers = () => (
     </div>
   </Router>)
 
-export default Routers;
+export default App;

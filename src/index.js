@@ -1,16 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Routers from './Routers.jsx';
+import App from './App.jsx';
 import './index.less';
 
-const render = Routers => {
+const render = App => {
   ReactDOM.render((
-    <Routers />
+    <App />
   ), document.getElementById('root'));
 }
 
-render(Routers)
+render(App)
 
 if (module.hot) {
-  module.hot.accept('./Routers', (Routers) => render(Routers))
+  module.hot.accept('./App', (App) => render(App))
 }
