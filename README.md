@@ -5,7 +5,7 @@
 
 ```bash
 git clone https://github.com/PIdoll/dbox-pro.git
-cd DBOX-PRO
+cd dbox-pro
 npm install 
 npm run start 
 ```
