@@ -190,11 +190,11 @@ export default class SiderMenu extends PureComponent {
 			activeKey
 		} = this.props;
 
-		const { openKeys: { menuProps } } = this.state;
+		const { openKeys: { menuprops } } = this.state;
 		// console.log('this.state.openKeys', menuProps);
 		// 折叠菜单不显示popup menu
 		// openKeys：当前展开的 SubMenu 菜单项 key 数组
-		const openKeys = collapsed ? {} : { menuProps }
+		const openKeys = collapsed ? {} : { menuprops }
 		// console.log('menuProps', menuProps);
 		// 如果路径不匹配，使用最近的父节点的key
 		// selectedKeys：当前选中的菜单项 key 数组

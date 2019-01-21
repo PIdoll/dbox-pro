@@ -12,5 +12,5 @@ const render = Routers => {
 render(Routers)
 
 if (module.hot) {
-  module.hot.accept('./App', (App) => render(App))
+  module.hot.accept('./Routers', (Routers) => render(Routers))
 }
