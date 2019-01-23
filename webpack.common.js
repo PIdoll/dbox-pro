@@ -45,13 +45,15 @@ module.exports = {
         }, {
           loader: 'css-loader',
           options: {
-            // modules: true,
             import: true
           }
         }, {
           loader: 'less-loader',
           options: {
-            import: true
+              modifyVars: {
+                'primary-color': 'red', // 修改dbox-ui主题色
+              },
+              javascriptEnabled: true,
           }
         }],
         // exclude: path.resolve(__dirname, 'node_modules')

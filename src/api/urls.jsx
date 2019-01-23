@@ -45,7 +45,6 @@ const hostname = initHostname();
 const urls = {}
 
 urlModules.map((v) => {
-	console.log('v', v);
 	Object
     .keys(v)
     .forEach(function (key) {

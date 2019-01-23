@@ -2,7 +2,7 @@ import React from 'react';
 import {Menu, Breadcrumb, Avatar, Icon, Dropdown, Layout} from 'dbox-ui';
 import {Switch} from 'react-router-dom';
 import {SiderMenu} from 'components';
-import { getMenuData } from './getMenuData';
+import { getMenuData, menuData } from './getMenuData';
 
 const {Header, Content, Sider} = Layout;
 const {DropdownNormal} = Dropdown;
@@ -19,24 +19,70 @@ export default class BasicLayoutPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      flag: false,
+      collapsed: false,
       mode: 'inline',
       keyPath: ['1'], // 选中menu全部路径
       activeKey: '1', // 选中key
     }
   };
 
+  componentDidMount = () => {
+    this.getKeyAndKeyPath();
+  }
+  getKeyAndKeyPath = () => {
+    console.log('location', location);
+    const {hash} = location;
+    let hashArr = hash.split('/');
+    let keyPath = [];
+    let searchData = menuData;
+    if (hashArr.length >= 3) {
+      for (let i = 1; i < hashArr.length; i++) {
+        const keyAndChildren = this.mapPathToKey(hashArr[i], searchData);
+        if (keyAndChildren) {
+          const {key, children} = keyAndChildren;
+          if (!key || (!children && i < hashArr.length - 1)) { // 非法输入url
+            keyPath = ['1'];
+            break;
+          }
+          searchData = children;
+          keyPath.unshift(key);
+        } else {
+          keyPath = ['1'];
+          break;
+        }
+      }
+      this.setState({
+        keyPath: keyPath,
+        activeKey: keyPath[keyPath.length - 1]
+      })
+    }
+  }
+
+  mapPathToKey = (path, searchData) => {
+    for (let i = 0; i < searchData.length; i++) {
+      if (searchData[i].path === path) {
+        return {
+					key: searchData[i].key,
+					children: searchData[i].children
+				}
+      }
+		}
+  }
+
+  //
+
   // 左侧导航拉伸收缩icon点击
   changeModel = () => {
     this.setState({
-      mode: !this.state.flag ? 'vertical' : 'inline',
-      flag: !this.state.flag,
+      mode: this.state.collapsed ? 'inline' : 'vertical',
+      collapsed: !this.state.collapsed,
       openKeys: [],
     })
   }
 
-  // 获取选中menu
   handleSelectMenu = (e) => {
+    // 更新path
+    console.log('e', e);
     this.setState({
       keyPath: e.keyPath ? e.keyPath : ['1'],
       activeKey: e.key
@@ -98,20 +144,20 @@ export default class BasicLayoutPage extends React.Component {
   }
 
   render() {
-    const {flag, mode} = this.state;
+    const {collapsed, mode} = this.state;
       return (
         <div>
           <Layout className='layout-inlineNav'>
             <Sider >
-              <div className={flag ? 'miniLogo' : 'logo'}><div>LOGO</div></div>
+              <div className={collapsed ? 'miniLogo' : 'logo'}><div>LOGO</div></div>
               <SiderMenu
                 location={location}
                 menuData={getMenuData()}
+                initMenuData={menuData}
                 mode={mode}
                 handleSelectMenu={this.handleSelectMenu}
-                activeKey={this.state.activeKey}
               />
-              <Icon type={flag ? 'right-circle-o' : 'left-circle-o'} onClick={this.changeModel} />
+              <Icon type={collapsed ? 'right-circle-o' : 'left-circle-o'} onClick={this.changeModel} />
             </Sider>
             <Layout>
               <Header style={{height: '56px'}} >

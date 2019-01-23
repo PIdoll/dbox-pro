@@ -4,6 +4,7 @@ const menuData = [
         name: '个人中心',
         icon: 'home',
         path: 'home',
+        // hideInMenu: false, // 配置是否隐藏菜单
     }, {
         key: '2',
         name: '作业平台',
@@ -32,7 +33,12 @@ function formatter(data, parentPath = '', parentAuthority) {
   });
 }
 
-export const getMenuData = () => formatter(menuData);
+const getMenuData = () => formatter(menuData);
+
+export {
+  getMenuData,
+  menuData
+}
 
 
 

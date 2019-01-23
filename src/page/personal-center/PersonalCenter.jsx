@@ -1,6 +1,6 @@
 import React from 'react';
 import {urls, services} from 'api';
-
+import {Button} from 'dbox-ui';
 export default class PersonalCenter extends React.Component {
     constructor(props) {
       super(props);
@@ -19,6 +19,7 @@ export default class PersonalCenter extends React.Component {
     render() {
         return (
           <div>
+            <Button type='primary'>个人中心</Button>
             <span>个人中心</span>
           </div>
         )
