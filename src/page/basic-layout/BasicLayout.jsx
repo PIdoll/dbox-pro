@@ -23,7 +23,7 @@ export default class BasicLayoutPage extends React.Component {
       collapsed: false,
       mode: 'inline',
       keyPath: ['1'], // 选中menu全部路径
-      activeKey: '1', // 选中key
+      activeKey: '', // 选中key
     }
   };
 
@@ -145,7 +145,7 @@ export default class BasicLayoutPage extends React.Component {
   }
 
   render() {
-    const {collapsed, mode} = this.state;
+    const {collapsed, mode, activeKey} = this.state;
       return (
         <div>
           <Layout className='layout-inlineNav'>
@@ -157,6 +157,7 @@ export default class BasicLayoutPage extends React.Component {
                 initMenuData={menuData}
                 mode={mode}
                 handleSelectMenu={this.handleSelectMenu}
+                activeKey={activeKey}
               />
               <Icon type={collapsed ? 'right-circle-o' : 'left-circle-o'} onClick={this.changeModel} />
             </Sider>

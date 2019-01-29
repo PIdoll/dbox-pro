@@ -164,9 +164,9 @@ export default class SiderMenu extends PureComponent {
 	}
 
 	render() {
-		const { mode } = this.props;
+		const { mode, activeKey } = this.props;
 		const {openKeys} = this.state;
-		const selectedKeys = [openKeys[openKeys.length - 1]];
+		const selectedKeys = activeKey === '1' ? ['1'] : [openKeys[openKeys.length - 1]];
 		return (
   <div className={styles.sider}>
     <Menu
