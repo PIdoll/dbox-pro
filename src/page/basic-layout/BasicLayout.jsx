@@ -3,6 +3,7 @@ import {Menu, Breadcrumb, Avatar, Icon, Dropdown, Layout} from 'dbox-ui';
 import {Switch} from 'react-router-dom';
 import {SiderMenu} from 'components';
 import { getMenuData, menuData } from './getMenuData';
+import './index.less';
 
 const {Header, Content, Sider} = Layout;
 const {DropdownNormal} = Dropdown;
@@ -168,9 +169,8 @@ export default class BasicLayoutPage extends React.Component {
                 </DropdownNormal>
               </Header>
 
-              {this.getBreadcrumb()}
-
-              <Content>
+              <Content className='content'>
+                {this.getBreadcrumb()}
                 <Switch>
                   {this.props.children}
                 </Switch>
