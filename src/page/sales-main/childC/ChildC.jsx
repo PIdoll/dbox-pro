@@ -18,7 +18,7 @@ class ChildC extends React.Component {
 }
 const mapStateToProps = (state) => {
     return {
-        childAData: state.ABC
+        childAData: state.childAData
     }
 }
 export default connect(mapStateToProps)(ChildC)

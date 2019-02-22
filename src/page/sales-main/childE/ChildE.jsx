@@ -29,7 +29,7 @@ class ChildE extends React.Component {
 }
 const mapStateToProps = (state) => {
     return {
-        childDData: state.DE
+        childDData: state.childDData
     }
 }
 

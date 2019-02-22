@@ -1,7 +1,7 @@
 import React from 'react';
 import {Button, Input} from 'dbox-ui';
 import { connect } from 'react-redux';
-import { fireABCData } from '../actions';
+import { fireData } from './actions';
 
 class ChildA extends React.Component {
     constructor() {
@@ -29,7 +29,7 @@ class ChildA extends React.Component {
 }
 const mapDispatchToProps = (dispatch) => ({
     fireData: (childAVlaue) => {
-      dispatch(fireABCData({childAVlaue}))
+      dispatch(fireData({childAVlaue}))
     }
   })
 export default connect(null, mapDispatchToProps)(ChildA)

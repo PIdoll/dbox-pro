@@ -1,0 +1,1 @@
+export const FIRE = 'SALESMAIN/CHILDD/FIRE';

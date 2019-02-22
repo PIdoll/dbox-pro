@@ -1,7 +1,7 @@
 import React from 'react';
 import {Button, Input} from 'dbox-ui';
 import { connect } from 'react-redux';
-import { fireData } from '../actions';
+import { fireData } from './actions';
 
 class ChildD extends React.Component {
     constructor() {
