@@ -1,0 +1,3 @@
+export const SET_ROOTDATA = 'ROOTDATA/SET';
+export const CLEAR_ROOTDATA = 'ROOTDATA/CLEAR';
+

@@ -95,13 +95,13 @@ export default class BasicLayoutPage extends React.Component {
     const {activeKey, keyPath} = this.state;
     // 个人中心页面
     if (activeKey === '1') {
-      return <Breadcrumb />;
+      return <Breadcrumb key={activeKey} />;
     }
 
     let keyPathLength = keyPath.length;
     let keyValueData = getMenuData();
     return (
-      <Breadcrumb>
+      <Breadcrumb key={activeKey}>
         <Breadcrumb.Item href='/#' onClick={this.changeSelectMenu}>
           <Icon type='home' />
           <span>个人中心</span>
@@ -113,7 +113,7 @@ export default class BasicLayoutPage extends React.Component {
             const {name, icon, nameIndx} = this.getMenuNameAndIcon(keyValue, keyValueData);
             keyValueData = keyValueData[nameIndx].children; // 获取children数据
             return (
-              <Breadcrumb.Item>
+              <Breadcrumb.Item key={value} >
                 {icon ? <Icon type={icon} /> : null}
                 <span>{name}</span>
               </Breadcrumb.Item>

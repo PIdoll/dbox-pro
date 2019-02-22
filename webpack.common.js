@@ -5,6 +5,8 @@ const ROOT_PATH = path.resolve(__dirname);
 const APP_PATH = path.resolve(ROOT_PATH, 'src');
 const BUILD_PATH = path.resolve(ROOT_PATH, 'dist');
 
+const HappyPack = require('happypack');
+
 module.exports = {
   entry: APP_PATH,
   output: {
@@ -32,44 +34,62 @@ module.exports = {
     rules: [
       {
         test: /\.(jsx|js)$/,
-        use: 'babel-loader',
+        use: ['happypack/loader?id=babel'],
+        // use: 'babel-loader',
         exclude: path.resolve(__dirname, 'node_modules')
       },
       {
         test: /\.(css|less)$/,
-        use: [{
-          loader: 'style-loader',
-          options: {
-            singleton: true
-          }
-        }, {
-          loader: 'css-loader',
-          options: {
-            import: true
-          }
-        }, {
-          loader: 'less-loader',
-          options: {
-              modifyVars: {
-                'primary-color': 'red', // 修改dbox-ui主题色
-              },
-              javascriptEnabled: true,
-          }
-        }],
-        // exclude: path.resolve(__dirname, 'node_modules')
+        use: ['happypack/loader?id=less-loader'],
       },
       {
         test: /\.(png|svg|jpg|gif|webp|ico)$/,
-        use: [
-           'file-loader'
-         ],
-         exclude: path.resolve(__dirname, 'node_modules')
+        use: ['happypack/loader?id=file-loader'],
+        exclude: path.resolve(__dirname, 'node_modules')
       },
       {
         test: /\.(jsx|js)$/,
-        use: 'eslint-loader',
+        use: ['happypack/loader?id=eslint-loader'],
         exclude: path.resolve(__dirname, 'node_modules')
       }
     ]
-  }
+  },
+  plugins: [
+    new HappyPack({
+      id: 'babel',
+      loaders: ['babel-loader']
+    }),
+    new HappyPack({
+      id: 'less-loader',
+      loaders: [
+          {
+            loader: 'style-loader',
+            options: {
+              singleton: true
+            }
+          }, {
+            loader: 'css-loader',
+            options: {
+              import: true
+            }
+          }, {
+            loader: 'less-loader',
+            options: {
+                // modifyVars: {
+                //   'primary-color': 'red', // 修改dbox-ui主题色
+                // },
+                javascriptEnabled: true,
+            }
+          }
+      ]
+    }),
+    new HappyPack({
+      id: 'file-loader',
+      loaders: ['file-loader']
+    }),
+    new HappyPack({
+      id: 'eslint-loader',
+      loaders: ['eslint-loader']
+    }),
+  ]
 };

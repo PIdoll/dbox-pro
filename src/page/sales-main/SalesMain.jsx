@@ -1,52 +1,54 @@
 import React from 'react';
-
-// export default class SalesMain extends React.Component {
-//     render() {
-//         return (
-//           <div>
-//             <span>销售主页面</span>
-//           </div>
-//         )
-//     }
-// }
+import { connect } from 'react-redux';
+import { clearRootData } from '../../rootDataAction';
+import { Button } from 'dbox-ui';
+import ChildA from './childA';
+import ChildB from './childB';
+import ChildC from './childC';
+import ChildD from './childD';
+import ChildE from './childE';
 
 
-import { Row, Col } from 'dbox-ui';
+class SalesMain extends React.Component {
+  componentDidMount() {
+    console.log('componentDidMount', this.props.rootData);
+  }
 
-const RowDemoStyle = {
-  backgroundColor: '#13B886',
-  padding: '10px 0',
-  textAlign: 'center',
-  fontSize: '16px',
-  color: '#fff'
-}
-const evenColor = {
-  backgroundColor: ' #3CCB69',
-  padding: '10px 0',
-  textAlign: 'center',
-  fontSize: '16px',
-  color: '#fff'
-}
-const RowSpace = {
-  marginBottom: '20px'
-}
-
-export default class SalesMain extends React.Component {
+  clearRootData = () => {
+    console.log('clearRootData');
+    this.props.clearRootData();
+  }
   render() {
     return (
       <div>
-        <Row style={RowSpace}>
-          <Col span={8}>
-            <div style={RowDemoStyle} >col-8</div>
-          </Col>
-          <Col span={8}>
-            <div style={evenColor} >col-8</div>
-          </Col>
-          <Col span={8}>
-            <div style={RowDemoStyle} >col-8</div>
-          </Col>
-        </Row>
+        <span>用户名: {this.props.rootData.userName}</span> <br /><br />
+        <span>密码: {this.props.rootData.password}</span><br /><br />
+        <Button onClick={this.clearRootData}>清除RootData</Button>
+
+        <br /><br />
+        <ChildA /><br />
+        <ChildB /><br />
+        <ChildC />
+
+        <br /><br />
+        <ChildD /><br />
+        <ChildE /><br />
       </div>
     )
   }
 }
+
+const mapStateToProps = (state) => {
+  return {
+    rootData: state.rootData
+  }
+}
+
+const mapDispatchToProps = (dispatch) => ({
+  clearRootData: () => {
+    dispatch(clearRootData());
+  }
+})
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(SalesMain);

@@ -1,15 +1,31 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+// import ReactDOM from 'react-dom';
+import { render } from 'react-dom'
 import App from './App.jsx';
+import {Provider} from 'react-redux';
+import store from './Store.jsx';
 import './index.less';
 
-const render = App => {
-  ReactDOM.render((
-    <App />
-  ), document.getElementById('root'));
-}
 
-render(App)
+render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById('root')
+)
+
+// render();
+// store.subscribe(render)
+
+
+
+// const render = App => {
+//   ReactDOM.render((
+//     <App />
+//   ), document.getElementById('root'));
+// }
+
+// render(App)
 
 if (module.hot) {
   module.hot.accept('./App', (App) => render(App))

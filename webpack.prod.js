@@ -42,7 +42,7 @@ let webpackConfig = merge(common, {
           ecma: 6,
           mangle: true
         },
-        sourceMap: true
+        sourceMap: false
       }),
       // Prevent compression from causing prefix loss
 		  new OptimizeCSSAssetsPlugin({})
