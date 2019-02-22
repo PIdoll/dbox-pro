@@ -1,4 +1,4 @@
-import {SET_ROOTDATA, CLEAR_ROOTDATA} from './rootDataActionTypes';
+import {SET_ROOTDATA, CLEAR_ROOTDATA} from './actionTypes';
 
 export const setRootData = (data) => ({
     type: SET_ROOTDATA,

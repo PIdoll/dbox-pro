@@ -2,7 +2,7 @@ import React from 'react';
 import {urls, services} from 'api';
 import {Button, Form, Input, Icon, Checkbox} from 'dbox-ui';
 import { connect } from 'react-redux';
-import { setRootData } from '../../rootDataAction';
+import { setRootData } from '../../actions';
 
 const FormItem = Form.Item;
 class LoginForm extends React.Component {

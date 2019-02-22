@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { clearRootData } from '../../rootDataAction';
+import { clearRootData } from '../../actions';
 import { Button } from 'dbox-ui';
 import ChildA from './childA';
 import ChildB from './childB';
