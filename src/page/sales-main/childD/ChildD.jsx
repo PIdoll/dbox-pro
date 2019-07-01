@@ -8,10 +8,10 @@ class ChildD extends React.Component {
     super();
     this.state = {
       value: ''
-    }
+    };
   }
   sendToE = () => {
-    console.log('D组件中输入框内容', this.state.value)
+    console.log('D组件中输入框内容', this.state.value);
     this.props.fireData(this.state.value);
   }
   onChange = (e) => {
@@ -24,12 +24,12 @@ class ChildD extends React.Component {
         <Input value={this.state.value} onChange={this.onChange} />
         <Button onClick={this.sendToE}>send to E</Button>
       </div>
-    )
+    );
   }
 }
 const mapDispatchToProps = (dispatch) => ({
   fireData: (childDVlaue) => {
-    dispatch(fireData({ childDVlaue }))
+    dispatch(fireData({ childDVlaue }));
   }
-})
-export default connect(null, mapDispatchToProps)(ChildD)
+});
+export default connect(null, mapDispatchToProps)(ChildD);

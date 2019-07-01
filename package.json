@@ -8,13 +8,14 @@
     "start": "cross-env webpack-dev-server --devtool source-map --hot --config webpack.dev.js",
     "build": "cross-env webpack --config webpack.prod.js",
     "run:build": "http-server dist/ -p 9090",
-    "dll": "webpack --config webpack.dll.config.js "
+    "dll": "webpack --config webpack.dll.config.js ",
+    "lint-staged:js": "eslint --cache --ext .js,.jsx"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/PIdoll/dbox-pro.git"
   },
-  "author": "",
+  "author": "dbox",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/PIdoll/dbox-pro/issues"
@@ -22,8 +23,18 @@
   "homepage": "https://github.com/PIdoll/dbox-pro#readme",
   "sideEffects": [
     "*.css",
-    "*.less"
+    "*.less",
+    "dist/*"
   ],
+  "lint-staged": {
+    "**/*.less": "stylelint --syntax less",
+    "**/*.{js,jsx}": "npm run lint-staged:js"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
   "dependencies": {
     "array-tree-filter": "^2.1.0",
     "axios": "^0.18.0",
@@ -87,10 +98,12 @@
     "happypack": "^5.0.1",
     "html-webpack-plugin": "^3.2.0",
     "http-server": "^0.11.1",
+    "husky": "^2.7.0",
     "jquery": "^1.12.3",
     "jsonml.js": "^0.1.0",
     "less": "^2.7.3",
     "less-loader": "^4.1.0",
+    "lint-staged": "^8.2.1",
     "mini-css-extract-plugin": "^0.5.0",
     "open-browser-webpack-plugin": "^0.0.5",
     "opn": "^5.3.0",
@@ -102,6 +115,7 @@
     "redux-immutable-state-invariant": "^2.1.0",
     "reqwest": "^2.0.5",
     "style-loader": "^0.19.1",
+    "stylelint": "^10.1.0",
     "terser-webpack-plugin": "^1.3.0",
     "transform-runtime": "0.0.0",
     "uglifyjs-webpack-plugin": "^2.1.3",
