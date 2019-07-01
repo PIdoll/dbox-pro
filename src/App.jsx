@@ -1,10 +1,16 @@
 import React from 'react';
 import { HashRouter as Router, Route, Switch } from 'react-router-dom';
-import {BasicLayout, PersonalCenter, SalesMain} from 'page';
+import {
+  BasicLayout,
+  PersonalCenter,
+  SalesMain,
+  AnswerQuestion
+  } from 'page';
 
 const App = () => (
   <Router>
     <div>
+      <Route exact path='/an' component={AnswerQuestion} />
       <Switch>
         <BasicLayout>
           <Route exact path='/' component={PersonalCenter} />

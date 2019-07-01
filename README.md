@@ -1,4 +1,5 @@
 # dbox-pro
+
 基于dbox-ui的脚手架
 
 ### 开始使用
@@ -6,10 +7,9 @@
 ```bash
 git clone https://github.com/PIdoll/dbox-pro.git
 cd dbox-pro
-npm install 
-npm run start 
+npm install
+npm run start
 ```
-
 
 ### 目录结构
 
