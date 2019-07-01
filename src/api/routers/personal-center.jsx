@@ -1,3 +1,3 @@
 export default {
-	personalInfo: '/personal-center/personalInfo',
-}
+  personalInfo: '/personal-center/personalInfo',
+};

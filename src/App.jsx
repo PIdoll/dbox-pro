@@ -5,21 +5,21 @@ import {
   PersonalCenter,
   SalesMain,
   AnswerQuestion
-  } from 'page';
+} from 'page';
 
 const App = () => (
   <Router>
     <div>
-      <Route exact path='/an' component={AnswerQuestion} />
+      <Route exact path="/an" component={AnswerQuestion} />
       <Switch>
         <BasicLayout>
-          <Route exact path='/' component={PersonalCenter} />
-          <Route exact path='/home' component={PersonalCenter} />
-          <Route exact path='/personalCenter' component={PersonalCenter} />
-          <Route exact path='/platform/salesMain' component={SalesMain} />
+          <Route exact path="/" component={PersonalCenter} />
+          <Route exact path="/home" component={PersonalCenter} />
+          <Route exact path="/personalCenter" component={PersonalCenter} />
+          <Route exact path="/platform/salesMain" component={SalesMain} />
         </BasicLayout>
       </Switch>
     </div>
-  </Router>)
+  </Router>);
 
 export default App;

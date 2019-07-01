@@ -1,8 +1,8 @@
-import {FIRE} from './actionTypes';
+import { FIRE } from './actionTypes';
 
 export const fireData = (data) => {
-    return {
-        type: FIRE,
-        data: data
-    }
+  return {
+    type: FIRE,
+    data: data
+  };
 };

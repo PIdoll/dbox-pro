@@ -1,6 +1,5 @@
 import SiderMenu from './sider-menu';
 
 
-export {SiderMenu};
-
+export { SiderMenu };
 

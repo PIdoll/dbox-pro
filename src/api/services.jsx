@@ -4,10 +4,10 @@
  * @Last Modified by: mikey.zhaopeng
  * @Last Modified time: 2018-05-11 09:54:42
  */
-import axios from 'axios'
+import axios from 'axios';
 import {
   message
-} from 'dbox-ui'
+} from 'dbox-ui';
 
 const codeMessage = {
   200: '服务器成功返回请求的数据。',
@@ -38,7 +38,7 @@ const checkStatus = (response) => {
   error.name = response.status;
   error.response = response;
   throw error;
-}
+};
 
 const request = (config, resolve, reject) => {
   const newConfig = { ...config };
@@ -52,11 +52,11 @@ const request = (config, resolve, reject) => {
   axios.request(newConfig)
     .then(checkStatus)
     .then((response) => {
-      const data = response.data
+      const data = response.data;
       console.log('response', response);
 
       if (data.resultCode === '000000') {
-        typeof resolve === 'function' && resolve(data.data)
+        typeof resolve === 'function' && resolve(data.data);
       } else {
         message.success(data.resultMesg);
         typeof reject === 'function' && reject(data.data);
@@ -66,8 +66,8 @@ const request = (config, resolve, reject) => {
     })
     .catch((error) => {
       typeof reject === 'function' && reject(error);
-    })
-}
+    });
+};
 
 export default {
   get: (url, params, resolve, reject) => {
@@ -75,16 +75,16 @@ export default {
       method: 'GET',
       url,
       params
-    }, resolve, reject)
+    }, resolve, reject);
   },
   post: (url, data, resolve, reject) => {
     request({
       method: 'POST',
       url,
       data
-    }, resolve, reject)
+    }, resolve, reject);
   },
   request: (config, resolve, reject) => {
-    request(config, resolve, reject)
+    request(config, resolve, reject);
   }
-}
+};

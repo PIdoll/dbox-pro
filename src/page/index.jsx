@@ -3,10 +3,9 @@ import PersonalCenter from './personal-center';
 import SalesMain from './sales-main';
 import AnswerQuestion from './answer-question';
 export {
-    BasicLayout,
-    PersonalCenter,
-    SalesMain,
-    AnswerQuestion
+  BasicLayout,
+  PersonalCenter,
+  SalesMain,
+  AnswerQuestion
 };
-
 

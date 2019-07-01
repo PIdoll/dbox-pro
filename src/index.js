@@ -1,8 +1,8 @@
 import React from 'react';
 // import ReactDOM from 'react-dom';
-import { render } from 'react-dom'
+import { render } from 'react-dom';
 import App from './App.jsx';
-import {Provider} from 'react-redux';
+import { Provider } from 'react-redux';
 import store from './store.jsx';
 import './index.less';
 
@@ -12,7 +12,7 @@ render(
     <App />
   </Provider>,
   document.getElementById('root')
-)
+);
 
 // render();
 // store.subscribe(render)
@@ -28,5 +28,5 @@ render(
 // render(App)
 
 if (module.hot) {
-  module.hot.accept('./App', (App) => render(App))
+  module.hot.accept('./App', (App) => render(App));
 }

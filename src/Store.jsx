@@ -1,16 +1,16 @@
-import {createStore, combineReducers, applyMiddleware, compose} from 'redux';
+import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 
 import immutable from 'redux-immutable-state-invariant';
 import rootDataReducer from './reducer';
-import {ChildAReducer, ChildDReducer} from './page/sales-main/reducer';
+import { ChildAReducer, ChildDReducer } from './page/sales-main/reducer';
 
 const win = window;
 // win.Perf = Perf
 
 const reducer = combineReducers({
-    rootData: rootDataReducer,
-    childAData: ChildAReducer,
-    childDData: ChildDReducer
+  rootData: rootDataReducer,
+  childAData: ChildAReducer,
+  childDData: ChildDReducer
 });
 
 const middlewares = [];

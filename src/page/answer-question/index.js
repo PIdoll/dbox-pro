@@ -24,19 +24,19 @@ export default function AnswerQuestion() {
       <eg-title>1、教资题库选择题</eg-title>
       <ZmExamda
         interactive
-        optionListLayout='oneline-between'
+        optionListLayout="oneline-between"
         handleChange={(res) => console.log(res)}
-        species='er'
-        index='1、'
+        species="er"
+        index="1、"
         options={['title', 'references', 'problem', 'answerList', 'analysis']}
         question={choiceDataForTeach}
       />
       <eg-title>2、单选题</eg-title>
       <ZmExamda
         question={choiceData}
-        index='1、'
+        index="1、"
         options={['title', { key: 'answerList', label: '答案:' }, { key: 'analysis', label: '这货不叫解析：' }]}
-        optionListLayout='oneline-between'
+        optionListLayout="oneline-between"
         extendsDom={{
           node: <div>GGGGGGGGGG</div>,
           pos: 'title'
@@ -46,9 +46,9 @@ export default function AnswerQuestion() {
       <ZmExamda
         interactive
         question={fillBlank}
-        index='2'
+        index="2"
         options={['title', 'answerList']}
-        optionListLayout='oneline'
+        optionListLayout="oneline"
       />
       <eg-title>4、填空题2</eg-title>
       <ZmExamda
@@ -60,7 +60,7 @@ export default function AnswerQuestion() {
       <ZmExamda
         interactive
         question={shortAnswer}
-        index='3'
+        index="3"
         options={['title', 'answerList']}
       />
       <eg-title>6、复合题</eg-title>
@@ -74,9 +74,9 @@ export default function AnswerQuestion() {
             groupIndexType: '(__$$__)',
             extendsDom: {
               nodeList: [
-                <div>children -- 01 自定义</div>,
-                <div>children -- 02 自定义</div>,
-                <div>children -- 03 自定义</div>,
+                <div key="01">children -- 01 自定义</div>,
+                <div key="02">children -- 02 自定义</div>,
+                <div key="03">children -- 03 自定义</div>,
               ],
               pos: 'end'
             }

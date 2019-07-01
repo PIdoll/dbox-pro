@@ -34,21 +34,21 @@ class SalesMain extends React.Component {
         <ChildD /><br />
         <ChildE /><br />
       </div>
-    )
+    );
   }
 }
 
 const mapStateToProps = (state) => {
   return {
     rootData: state.rootData
-  }
-}
+  };
+};
 
 const mapDispatchToProps = (dispatch) => ({
   clearRootData: () => {
     dispatch(clearRootData());
   }
-})
+});
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(SalesMain);
